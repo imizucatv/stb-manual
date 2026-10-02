@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CATVデジタルセットトップボックス 設置者・管理者向け設定＆操作マニュアル</title>
 <style>
+  /* ＝ 全要素のサイズ計算を枠線・余白内込みに固定 ＝ */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
   /* ＝＝＝ 画面表示・ベース設定（モノクロ基調） ＝＝＝ */
   :root {
     --text-black: #000000;
@@ -16,7 +21,7 @@
   }
 
   body {
-    font-family: "BIZ UDPGothic", "Meiryo", "Yu Gothic", sans-serif;
+    font-family: "BIZ UDPGothic", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
     line-height: 1.6;
     color: var(--text-black);
     background-color: var(--bg-gray);
@@ -26,10 +31,10 @@
   }
 
   .container {
-    max-width: 900px;
+    max-width: 880px;
     margin: 0 auto;
     background: var(--bg-white);
-    padding: 40px;
+    padding: 35px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
   }
 
@@ -73,6 +78,7 @@
   .section-block {
     margin-top: 30px;
     margin-bottom: 20px;
+    width: 100%;
   }
 
   .toc {
@@ -91,6 +97,7 @@
     padding: 15px;
     margin: 15px 0;
     background-color: #fdfdfd;
+    width: 100%;
   }
   .callout-title {
     font-weight: bold;
@@ -157,19 +164,23 @@
   @media print {
     @page {
       size: A4 portrait;
-      margin: 15mm 15mm;
+      margin: 12mm 12mm; /* 安全な用紙余白 */
     }
     
     body {
       background-color: #fff;
       padding: 0;
-      font-size: 11pt;
+      margin: 0;
+      font-size: 10.5pt;
+      width: 100%;
     }
 
     .container {
       box-shadow: none;
       padding: 0;
-      max-width: 100%;
+      width: 98%; /* 右切れ防止のため幅を98%に微縮小 */
+      max-width: 98%;
+      margin: 0 auto;
       border: none;
     }
 
@@ -178,6 +189,15 @@
     .section-block, .callout, table, tr, li, img {
       page-break-inside: avoid;
       break-inside: avoid;
+    }
+
+    .responsive-img {
+      max-width: 98%; /* 画像の横溢れを防止 */
+      height: auto;
+    }
+
+    table {
+      width: 98%; /* テーブルの右切れ防止 */
     }
 
     h1, h2, h3, h4 {
@@ -264,8 +284,7 @@
   <!-- 添付画像（メーカー設定コード表）組み込みエリア -->
   <div class="section-block">
     <h4>【テレビメーカー設定コード一覧】</h4>
-    <!-- ※画像ファイルのパスはご環境に合わせて変更してください -->
-    <img src="tv_maker_code.jpg" alt="テレビメーカー設定コード一覧" class="responsive-img">
+    <img src="スクリーンショット 2026-10-02 16.02.27.jpg" alt="テレビメーカー設定コード一覧" class="responsive-img">
     <p>※工場出荷時は「パナソニック 1」に設定されています。動作しない場合は順にお試しください。</p>
   </div>
 
