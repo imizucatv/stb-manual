@@ -3,14 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CATVデジタルセットトップボックス 設置者・管理者向け設定＆操作マニュアル</title>
+<title>ケーブルプラスSTB-2ライト 設置者・管理者向け設定＆操作マニュアル</title>
 <style>
-  /* ＝ 全要素のサイズ計算を枠線・余白内込みに固定 ＝ */
   *, *::before, *::after {
     box-sizing: border-box;
   }
 
-  /* ＝＝＝ 画面表示・ベース設定（モノクロ基調） ＝＝＝ */
   :root {
     --text-black: #000000;
     --text-dark: #333333;
@@ -38,24 +36,62 @@
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
   }
 
-  /* ＝＝＝ 見出しスタイル ＝＝＝ */
+  /* ＝＝＝ ヘッダー＆ロゴ配置 ＝＝＝ */
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 3px solid var(--border-main);
+    padding-bottom: 12px;
+    margin-bottom: 25px;
+    gap: 15px;
+  }
+
+  .header-left {
+    flex-grow: 1;
+  }
+
+  .header-right {
+    flex-shrink: 0;
+    text-align: right;
+  }
+
+  .header-right a {
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .company-logo {
+    max-width: 220px;
+    height: auto;
+    display: block;
+    border: none;
+  }
+
   h1 {
     font-size: 1.8rem;
-    text-align: center;
-    border-bottom: 3px solid var(--border-main);
-    padding-bottom: 10px;
-    margin-top: 0;
-    margin-bottom: 10px;
+    margin: 0 0 8px 0;
+    line-height: 1.25;
+  }
+
+  .product-badge {
+    display: inline-block;
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 0.9rem;
+    padding: 2px 8px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    letter-spacing: 0.05em;
   }
 
   .subtitle {
-    text-align: center;
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: var(--text-dark);
-    margin-bottom: 30px;
   }
 
+  /* ＝＝＝ 見出しスタイル ＝＝＝ */
   h2 {
     font-size: 1.4rem;
     border-top: 2px solid var(--border-main);
@@ -127,7 +163,6 @@
     text-align: right;
   }
 
-  /* 画像レスポンシブ・スタイル */
   .responsive-img {
     max-width: 100%;
     height: auto;
@@ -136,7 +171,6 @@
     border: 1px solid var(--border-main);
   }
 
-  /* テーブル設定 */
   table {
     width: 100%;
     border-collapse: collapse;
@@ -164,7 +198,7 @@
   @media print {
     @page {
       size: A4 portrait;
-      margin: 12mm 12mm; /* 安全な用紙余白 */
+      margin: 12mm 12mm;
     }
     
     body {
@@ -178,10 +212,14 @@
     .container {
       box-shadow: none;
       padding: 0;
-      width: 98%; /* 右切れ防止のため幅を98%に微縮小 */
+      width: 98%;
       max-width: 98%;
       margin: 0 auto;
       border: none;
+    }
+
+    .company-logo {
+      max-width: 180px;
     }
 
     a { text-decoration: none !important; color: #000 !important; }
@@ -192,12 +230,12 @@
     }
 
     .responsive-img {
-      max-width: 98%; /* 画像の横溢れを防止 */
+      max-width: 98%;
       height: auto;
     }
 
     table {
-      width: 98%; /* テーブルの右切れ防止 */
+      width: 98%;
     }
 
     h1, h2, h3, h4 {
@@ -221,8 +259,19 @@
 
 <div class="container">
 
-  <h1>CATVデジタルセットトップボックス<br>設定＆操作マニュアル</h1>
-  <div class="subtitle">Android TV搭載モデル ／ 設置現場・保守作業用</div>
+  <!-- ヘッダー（ロゴからポータル一覧 index.html へ戻るリンク設定） -->
+  <header class="header-container">
+    <div class="header-left">
+      <div><span class="product-badge">CATVデジタルSTB</span></div>
+      <h1>ケーブルプラスSTB-2ライト<br>設定＆操作マニュアル</h1>
+      <div class="subtitle">Android TV搭載モデル (C02AS5-1) ／ 設置現場・保守作業用</div>
+    </div>
+    <div class="header-right">
+      <a href="index.html" title="マニュアル一覧ポータルへ戻る">
+        <img src="iCNロゴ(横一列・カラー).png" alt="いみずケーブルネットワーク" class="company-logo">
+      </a>
+    </div>
+  </header>
 
   <nav class="toc section-block">
     <h2>目次</h2>
@@ -234,14 +283,12 @@
     </ul>
   </nav>
 
-  <!-- ==============================================
-       1. 概要および設置前の確認事項
-       ============================================== -->
+  <!-- 1. 概要 -->
   <h2>概要および設置前の確認事項</h2>
   
   <div class="section-block">
     <h3>1. 設置環境と安全上のご注意</h3>
-    <p>本機を安全かつ安定して動作させるため、設置時に以下の点をご確認ください。</p>
+    <p>本機（ケーブルプラスSTB-2ライト）を安全かつ安定して動作させるため、設置時に以下の点をご確認ください。</p>
     <ul>
       <li><strong>横置きの徹底：</strong> 必ず「横置き（セット脚を下）」で設置してください。縦置きは放熱不良の原因となるため禁止です。</li>
       <li><strong>放熱スペース：</strong> 放熱のため、本体の周囲（左右・天面・背面）には10cm以上の間隔を空けてください。</li>
@@ -261,9 +308,7 @@
     </ul>
   </div>
 
-  <!-- ==============================================
-       2. 基本設置・初期設定
-       ============================================== -->
+  <!-- 2. 基本設置・初期設定 -->
   <h2>基本設置・初期設定（必須5項目）</h2>
 
   <div class="section-block">
@@ -281,7 +326,6 @@
     </div>
   </div>
 
-  <!-- 添付画像（メーカー設定コード表）組み込みエリア -->
   <div class="section-block">
     <h4>【テレビメーカー設定コード一覧】</h4>
     <img src="スクリーンショット 2026-10-02 16.02.27.jpg" alt="テレビメーカー設定コード一覧" class="responsive-img">
@@ -340,9 +384,7 @@
     </ol>
   </div>
 
-  <!-- ==============================================
-       3. 運用・保守における重要注意事項および便利機能
-       ============================================== -->
+  <!-- 3. 運用・保守 -->
   <h2 class="page-break-before">運用・保守における重要注意事項および便利機能</h2>
 
   <div class="section-block">
@@ -419,9 +461,7 @@
     </table>
   </div>
 
-  <!-- ==============================================
-       4. チェックシート
-       ============================================== -->
+  <!-- 4. チェックシート -->
   <h2 class="page-break-before">設置完了確認チェックシート（現場引渡用）</h2>
   <div class="section-block">
     <p>すべての設置・設定が完了したら、以下の項目を順に確認し、お客様へお引き渡しください。</p>

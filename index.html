@@ -27,12 +27,36 @@
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
   }
 
-  /* ヘッダー */
-  header {
+  /* ヘッダー＆ロゴ配置 */
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
     border-bottom: 3px double #000000;
     padding-bottom: 15px;
     margin-bottom: 25px;
-    text-align: center;
+    gap: 15px;
+  }
+
+  .header-left {
+    flex-grow: 1;
+  }
+
+  .header-right {
+    flex-shrink: 0;
+    text-align: right;
+  }
+
+  .header-right a {
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .company-logo {
+    max-width: 220px;
+    height: auto;
+    display: block;
+    border: none;
   }
 
   h1 {
@@ -145,14 +169,12 @@
     margin-left: 15px;
   }
 
-  /* 準備中表示用 */
   .manual-card.disabled {
     pointer-events: none;
     opacity: 0.6;
     background-color: #fafafa;
   }
 
-  /* 検索で該当なし */
   .no-result {
     display: none;
     padding: 20px;
@@ -161,7 +183,6 @@
     font-weight: bold;
   }
 
-  /* フッター */
   footer {
     margin-top: 50px;
     border-top: 1px solid #cccccc;
@@ -176,9 +197,17 @@
 
 <div class="container">
 
-  <header>
-    <h1>CATVデジタルセットトップボックス</h1>
-    <div class="header-desc">設置者・管理者向け 設定＆操作マニュアル ポータル</div>
+  <!-- ヘッダー（ロゴから自社HP www.canet.ne.jp へリンク設定） -->
+  <header class="header-container">
+    <div class="header-left">
+      <h1>CATVデジタルセットトップボックス</h1>
+      <div class="header-desc">設置者・管理者向け 設定＆操作マニュアル ポータル</div>
+    </div>
+    <div class="header-right">
+      <a href="https://www.canet.ne.jp/" target="_blank" rel="noopener" title="いみずケーブルネットワーク 公式サイトを開く">
+        <img src="iCNロゴ(横一列・カラー).png" alt="いみずケーブルネットワーク" class="company-logo">
+      </a>
+    </div>
   </header>
 
   <!-- 簡易検索バー -->
@@ -247,12 +276,12 @@
   </section>
 
   <footer>
-    現場運用・管理用ポータルサイト &copy; STB Technical Manuals
+    現場運用・管理用ポータルサイト &copy; いみずケーブルネットワーク STB Technical Manuals
   </footer>
 
 </div>
 
-<!-- リアルタイム絞り込み検索用JavaScript -->
+<!-- リアルタイム絞り込み検索JavaScript -->
 <script>
   document.getElementById('searchInput').addEventListener('input', function() {
     const query = this.value.toLowerCase().trim();
